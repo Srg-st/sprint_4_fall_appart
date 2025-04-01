@@ -1,16 +1,14 @@
 package srgst.practikum;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 @RunWith(Parameterized.class)
-public class OrderScenarioLowerButtonTestChrome {
+public class OrderScenarioLowerButtonTest {
     private WebDriver driver;
 
     private final String name;
@@ -21,7 +19,7 @@ public class OrderScenarioLowerButtonTestChrome {
     private final String dateDelivery;
     private final String comment;
 
-    public OrderScenarioLowerButtonTestChrome(String name, String surname, String adress, String metro, String telephone, String dateDelivery, String comment) {
+    public OrderScenarioLowerButtonTest(String name, String surname, String adress, String metro, String telephone, String dateDelivery, String comment) {
         this.name = name;
         this.surname = surname;
         this.adress = adress;
@@ -43,28 +41,25 @@ public class OrderScenarioLowerButtonTestChrome {
         };
     }
 
-    @Before
-    public void startDriver() throws InterruptedException {
-
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        //Открываем сайт Яндекс Самокат
-        driver.get("https://qa-scooter.praktikum-services.ru");
-
-
-
+   @Before
+    public void startDriver(){
+        String browser = System.getProperty("browser","chrome");
+        WebDriverFactory factory = WebDriverFactoryBrowser.getFactory(browser);
+        driver = factory.driver();
     }
 
     @Test
 
     public void checkOrderConfirmScenario() throws InterruptedException {
-        ButtonsMainPage buttonsMainPage = new ButtonsMainPage(driver);
+
+        MainPage mainPage = new MainPage(driver);
         //Принимаем Куки
-        buttonsMainPage.clickOnCookieButton();
+        mainPage.clickOnCookieButton();
         //Скроллим страницу до кнопки Заказать в нижней части страницы
-        buttonsMainPage.scrollToLowerOrderButton();
+        mainPage.scrollToLowerOrderButton();
+        Thread.sleep(3000);
         //Нажимаем на кнопку Заказать
-        buttonsMainPage.clickOnOrderButtonLowerSide();
+        mainPage.clickOnOrderButtonLowerSide();
 
         MainInformationUserOrderPage mainInformationUserOrderPage = new MainInformationUserOrderPage(driver);
         // Кликаем на поле Имя и заполняем его

@@ -1,16 +1,14 @@
 package srgst.practikum;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 @RunWith(Parameterized.class)
-public class OrderScenarioUpperButtonTestChrome {
+public class OrderScenarioUpperButtonTest {
     private WebDriver driver;
 
     private final String name;
@@ -21,7 +19,7 @@ public class OrderScenarioUpperButtonTestChrome {
     private final String dateDelivery;
     private final String comment;
 
-    public OrderScenarioUpperButtonTestChrome(String name, String surname, String adress, String metro, String telephone, String dateDelivery, String comment) {
+    public OrderScenarioUpperButtonTest(String name, String surname, String adress, String metro, String telephone, String dateDelivery, String comment) {
         this.name = name;
         this.surname = surname;
         this.adress = adress;
@@ -45,11 +43,9 @@ public class OrderScenarioUpperButtonTestChrome {
 
     @Before
     public void startDriver() {
-
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru");
-
+        String browser = System.getProperty("browser","chrome");
+        WebDriverFactory factory = WebDriverFactoryBrowser.getFactory(browser);
+        driver = factory.driver();
 
     }
 
@@ -57,12 +53,12 @@ public class OrderScenarioUpperButtonTestChrome {
 
     public void checkOrderConfirmScenario() throws InterruptedException {
 
-        ButtonsMainPage buttonsMainPage = new ButtonsMainPage(driver);
+        MainPage mainPage = new MainPage(driver);
         //Принимаем Куки
-        buttonsMainPage.clickOnCookieButton();
+        mainPage.clickOnCookieButton();
 
         //Нажимаем на кнопку Заказать
-        buttonsMainPage.clickOnOrderButtonUpperSide();
+        mainPage.clickOnOrderButtonUpperSide();
 
 
         MainInformationUserOrderPage mainInformationUserOrderPage = new MainInformationUserOrderPage(driver);
@@ -74,7 +70,7 @@ public class OrderScenarioUpperButtonTestChrome {
         mainInformationUserOrderPage.clickOnSurnameField();
         mainInformationUserOrderPage.surnameFieldSendData(surname);
 
-        //Кликаем на поле Адрес и заполнем его
+        //Кликаем на поле Адрес и заполняем его
         mainInformationUserOrderPage.clickOnAddressField();
         mainInformationUserOrderPage.adressFieldSendData(adress);
         //Кликаем на поле Метро, заполняем его и кликаем на введенное название метро в выпадающем списке

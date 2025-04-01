@@ -14,19 +14,19 @@ public class OtherInfoOrderPage {
     private WebDriver driver;
 
 
-    private final By dateDeliveryScooterField = By.xpath("/html/body/div/div/div[2]/div[2]/div[1]/div[1]/div/input");
+    private final By dateDeliveryScooterField = By.xpath(".//div[1]/div/input");
 
     private final By rentalPeriodField = By.className("Dropdown-placeholder");
     private final By dropDownList = By.className("Dropdown-menu");
-    private final By oneDayRentalSelect = By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/div[2]/div[1]");
+    private final By oneDayRentalSelect = By.xpath(".//div[text()='сутки']");
 
     private final By blackColourScooterField = By.id("black");
 
-    private final By commentForCourierField = By.xpath("/html/body/div/div/div[2]/div[2]/div[4]/input");
+    private final By commentForCourierField = By.xpath(".//div[4]/input");
 
-    private final By orderButtonFinish = By.xpath("/html/body/div/div/div[2]/div[3]/button[2]");
+    private final By orderButtonFinish = By.xpath(".//button[2][text()='Заказать']");
 
-    private final By confirmOrderButton = By.xpath("/html/body/div/div/div[2]/div[5]/div[2]/button[2]");
+    private final By confirmOrderButton = By.xpath(".//button[2][text()='Да']");
 
     private final By confirmWindow = By.className("Order_ModalHeader__3FDaJ");
 
