@@ -19,6 +19,4 @@ Chrome браузер для запуска установлен по умолч
 
 `mvn clean test`
 
-`mvn test -Dbrowser=chrome`
-
 `mvn test -Dbrowser=firefox`

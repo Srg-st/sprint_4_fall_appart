@@ -9,14 +9,14 @@ import java.time.Duration;
 
 public class MainInformationUserOrderPage {
     private WebDriver driver;
-    private final By nameField = By.xpath(".//div[2]/div[1]/input");
-    private final By surnameField = By.xpath(".//div[2]/input");
-    private final By adressField = By.xpath(".//div[3]/input");
+    private final By nameField = By.xpath(".//input[contains(@placeholder,'Имя')]");
+    private final By surnameField = By.xpath(".//input[contains(@placeholder,'Фамилия')]");
+    private final By adressField = By.xpath(".//input[contains(@placeholder,'Адрес')]");
     private final By metroStationField = By.xpath(".//div/input[@class='select-search__input']");
     private final By metroStationFromList = By.className("select-search__select");
-    private final By telephoneField = By.xpath(".//div[5]/input");
+    private final By telephoneField = By.xpath(".//input[contains(@placeholder,'Телефон')]");
 
-    private final By nextStepButton = By.xpath(".//div[3]/button[text()='Далее']");
+    private final By nextStepButton = By.xpath(".//div[@class='Order_NextButton__1_rCA']/button[contains(text(),'Далее')]");
 
     public MainInformationUserOrderPage(WebDriver driver) {
         this.driver = driver;

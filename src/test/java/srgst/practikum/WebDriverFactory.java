@@ -37,7 +37,7 @@ class ChromeDriverFactory implements WebDriverFactory {
             case "firefox":
                 return new FirefoxDriverFactory();
             default:
-                throw new IllegalArgumentException("Бразуер не поддерживается "+ browser);
+                throw new IllegalArgumentException("Браузер не поддерживается "+ browser);
         }
     }
     }

@@ -43,6 +43,7 @@ public class OrderScenarioLowerButtonTest {
 
    @Before
     public void startDriver(){
+       //Реализация выбора браузера
         String browser = System.getProperty("browser","chrome");
         WebDriverFactory factory = WebDriverFactoryBrowser.getFactory(browser);
         driver = factory.driver();

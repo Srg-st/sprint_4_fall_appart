@@ -23,12 +23,93 @@ public class MainPage {
 
     private final By orderButtonUpperSide = By.xpath(".//button[@class='Button_Button__ra12g']");
 
-    private final By orderButtonLowerSide = By.xpath(".//div[5]/button");
+    private final By orderButtonLowerSide = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     private final By lowerOrderButtonLocation = By.className("Home_RoadMap__2tal_");
 
     private final By questionsBlockLocation = By.className("Home_FourPart__1uthg");
 
+    private static final By QUESTION_ABOUT_PRICE = By.xpath("//*[@id='accordion__heading-0']");
+    private static final By QUESTION_ABOUT_QUANTITY = By.xpath("//*[@id='accordion__heading-1']");
+    private static final By QUESTION_ABOUT_RENTAL_TIME = By.xpath("//*[@id='accordion__heading-2']");
+    private static final By QUESTION_ABOUT_RENTAL_TODAY = By.xpath("//*[@id='accordion__heading-3']");
+    private static final By QUESTION_ABOUT_RENTAL_PERIOD = By.xpath("//*[@id='accordion__heading-4']");
+    private static final By QUESTION_ABOUT_CHARGER = By.xpath("//*[@id='accordion__heading-5']");
+    private static final By QUESTION_ABOUT_CANCEL_ORDER = By.xpath("//*[@id='accordion__heading-6']");
+    private static final By QUESTION_ABOUT_DELIVERY_DISTANCE = By.xpath("//*[@id='accordion__heading-7']");
+
+    private static final By ANSWER_ABOUT_PRICE_ON_WEB = By.xpath("//*[@id='accordion__panel-0']/p");
+    private static final By ANSWER_ABOUT_QUANTITY_ON_WEB = By.xpath("//*[@id='accordion__panel-1']/p");
+    private static final By ANSWER_ABOUT_RENTAL_TIME_ON_WEB = By.xpath("//*[@id='accordion__panel-2']/p");
+    private static final By ANSWER_ABOUT_RENTAL_TODAY_ON_WEB = By.xpath("//*[@id='accordion__panel-3']/p");
+    private static final By ANSWER_ABOUT_RENTAL_PERIOD_ON_WEB = By.xpath("//*[@id='accordion__panel-4']/p");
+    private static final By ANSWER_ABOUT_CHARGER_ON_WEB = By.xpath("//*[@id='accordion__panel-5']/p");
+    private static final By ANSWER_ABOUT_CANCEL_ORDER = By.xpath("//*[@id='accordion__panel-6']/p");
+    private static final By ANSWER_ABOUT_DELIVERY_DISTANCE_ON_WEB = By.xpath("//*[@id='accordion__panel-7']/p");
+
+    public static By getQuestionAboutPrice(){
+        return QUESTION_ABOUT_PRICE;
+    }
+
+    public static By getQuestionAboutQuantity() {
+        return QUESTION_ABOUT_QUANTITY;
+    }
+
+    public static By getQuestionAboutRentalTime(){
+        return QUESTION_ABOUT_RENTAL_TIME;
+    }
+
+    public static By getQuestionAboutRentalToday() {
+        return QUESTION_ABOUT_RENTAL_TODAY;
+    }
+
+    public static By getQuestionAboutRentalPeriod() {
+        return QUESTION_ABOUT_RENTAL_PERIOD;
+    }
+
+    public static By getQuestionAboutCharger() {
+        return QUESTION_ABOUT_CHARGER;
+    }
+
+    public static By getQuestionAboutCancelOrder() {
+        return QUESTION_ABOUT_CANCEL_ORDER;
+    }
+
+    public static By getQuestionAboutDeliveryDistance(){
+        return QUESTION_ABOUT_DELIVERY_DISTANCE;
+    }
+
+    public static By getAnswerAboutPriceOnWeb() {
+        return ANSWER_ABOUT_PRICE_ON_WEB;
+    }
+
+    public static By getAnswerAboutQuantityOnWeb() {
+        return ANSWER_ABOUT_QUANTITY_ON_WEB;
+    }
+
+    public static By getAnswerAboutRentalTimeOnWeb() {
+        return ANSWER_ABOUT_RENTAL_TIME_ON_WEB;
+    }
+
+    public static By getAnswerAboutRentalTodayOnWeb() {
+        return ANSWER_ABOUT_RENTAL_TODAY_ON_WEB;
+    }
+
+    public static By getAnswerAboutRentalPeriodOnWeb() {
+        return ANSWER_ABOUT_RENTAL_PERIOD_ON_WEB;
+    }
+
+    public static By getAnswerAboutChargerOnWeb() {
+        return ANSWER_ABOUT_CHARGER_ON_WEB;
+    }
+
+    public static By getAnswerAboutCancelOrderOnWeb() {
+        return ANSWER_ABOUT_CANCEL_ORDER;
+    }
+
+    public static By getAnswerAboutDeliveryDistanceOnWeb() {
+        return ANSWER_ABOUT_DELIVERY_DISTANCE_ON_WEB;
+    }
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
