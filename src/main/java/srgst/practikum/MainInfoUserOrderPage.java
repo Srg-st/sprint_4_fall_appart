@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class MainInformationUserOrderPage {
+public class MainInfoUserOrderPage {
     private WebDriver driver;
     private final By nameField = By.xpath(".//input[contains(@placeholder,'Имя')]");
     private final By surnameField = By.xpath(".//input[contains(@placeholder,'Фамилия')]");
@@ -18,7 +18,7 @@ public class MainInformationUserOrderPage {
 
     private final By nextStepButton = By.xpath(".//div[@class='Order_NextButton__1_rCA']/button[contains(text(),'Далее')]");
 
-    public MainInformationUserOrderPage(WebDriver driver) {
+    public MainInfoUserOrderPage(WebDriver driver) {
         this.driver = driver;
     }
 

@@ -54,58 +54,57 @@ public class OrderScenarioUpperButtonTest {
 
     public void checkOrderConfirmScenario() throws InterruptedException {
 
-        MainPage mainPage = new MainPage(driver);
+        MainPageScooter mainPageScooter = new MainPageScooter(driver);
         //Принимаем Куки
-        mainPage.clickOnCookieButton();
+        mainPageScooter.clickOnCookieButton();
 
         //Нажимаем на кнопку Заказать
-        mainPage.clickOnOrderButtonUpperSide();
+        mainPageScooter.clickOnOrderButtonUpperSide();
 
 
-        MainInformationUserOrderPage mainInformationUserOrderPage = new MainInformationUserOrderPage(driver);
+        MainInfoUserOrderPage mainInfoUserOrderPage = new MainInfoUserOrderPage(driver);
         // Кликаем на поле Имя и заполняем его
-        mainInformationUserOrderPage.clickOnNameField();
-        mainInformationUserOrderPage.nameFieldSendData(name);
+        mainInfoUserOrderPage.clickOnNameField();
+        mainInfoUserOrderPage.nameFieldSendData(name);
 
         //Кликаем на поле Фамилия и заполняем его
-        mainInformationUserOrderPage.clickOnSurnameField();
-        mainInformationUserOrderPage.surnameFieldSendData(surname);
+        mainInfoUserOrderPage.clickOnSurnameField();
+        mainInfoUserOrderPage.surnameFieldSendData(surname);
 
         //Кликаем на поле Адрес и заполняем его
-        mainInformationUserOrderPage.clickOnAddressField();
-        mainInformationUserOrderPage.adressFieldSendData(adress);
+        mainInfoUserOrderPage.clickOnAddressField();
+        mainInfoUserOrderPage.adressFieldSendData(adress);
         //Кликаем на поле Метро, заполняем его и кликаем на введенное название метро в выпадающем списке
-        mainInformationUserOrderPage.clickOnMetroStationField();
-        mainInformationUserOrderPage.metroStationFieldSendData(metro);
+        mainInfoUserOrderPage.clickOnMetroStationField();
+        mainInfoUserOrderPage.metroStationFieldSendData(metro);
         //Кликаем на поле Телефон и заполняем его
-        mainInformationUserOrderPage.clickTelephoneField();
-        mainInformationUserOrderPage.telephoneFieldSendData(telephone);
+        mainInfoUserOrderPage.clickTelephoneField();
+        mainInfoUserOrderPage.telephoneFieldSendData(telephone);
         //Кликаем на кнопку Далее
-        mainInformationUserOrderPage.clickNextStepButton();
+        mainInfoUserOrderPage.clickNextStepButton();
 
-        OtherInfoOrderPage otherInfoOrderPage = new OtherInfoOrderPage(driver);
+        InfoAboutRentOrderPage infoAboutRentOrderPage = new InfoAboutRentOrderPage(driver);
         //Кликаем на поле Когда привезти самокат, заполняем его и закрываем окно с выбором даты
-        otherInfoOrderPage.clickDateDeliveryField();
-        otherInfoOrderPage.dateDeliveryFieldSendData(dateDelivery);
+        infoAboutRentOrderPage.clickDateDeliveryField();
+        infoAboutRentOrderPage.dateDeliveryFieldSendData(dateDelivery);
         //Кликаем на поле Срок аренды и выбираем вариант Одни сутки из выпадающего списка
-        otherInfoOrderPage.clickRentalPeriodField();
-        otherInfoOrderPage.chooseRentalPeriodFromList();
+        infoAboutRentOrderPage.clickRentalPeriodField();
+        infoAboutRentOrderPage.chooseRentalPeriodFromList();
         //Кликаем на Чекбокс "черный жемчуг" в поле Цвет самоката
-        otherInfoOrderPage.clickCnColourField();
+        infoAboutRentOrderPage.clickCnColourField();
         //Кликаем на поле Комментарий для курьера и заполняем его
-        otherInfoOrderPage.clickOnCommentField();
-        otherInfoOrderPage.commentFieldSendData(comment);
+        infoAboutRentOrderPage.clickOnCommentField();
+        infoAboutRentOrderPage.commentFieldSendData(comment);
 
         //Кликаем на кнопку Заказать
-        otherInfoOrderPage.clickOnOrderButtonFinish();
+        infoAboutRentOrderPage.clickOnOrderButtonFinish();
         //Кликаем на кнопку Да для подтверждения заказа
-        otherInfoOrderPage.clickOnConfirmOrderButton();
+        infoAboutRentOrderPage.clickOnConfirmOrderButton();
         //Проверяем, что появилось окно Заказ оформлен
-        otherInfoOrderPage.checkOrderConfirm();
+        infoAboutRentOrderPage.checkOrderConfirm();
 
 
     }
-
 
 
     @After
@@ -113,12 +112,3 @@ public class OrderScenarioUpperButtonTest {
         driver.quit();
     }
 }
-
-
-
-
-
-
-
-
-

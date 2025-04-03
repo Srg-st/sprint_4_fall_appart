@@ -14,22 +14,22 @@ class ChromeDriverFactory implements WebDriverFactory {
     public WebDriver driver() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        driver.get(MainPage.SCOOTER_URL);
+        driver.get(MainPageScooter.SCOOTER_URL);
         return driver;
     }
 }
 
-    class FirefoxDriverFactory implements WebDriverFactory {
-        @Override
-        public WebDriver driver() {
-            WebDriverManager.firefoxdriver().setup();
-            WebDriver driver = new FirefoxDriver();
-            driver.get(MainPage.SCOOTER_URL);
-            return driver;
-        }
+class FirefoxDriverFactory implements WebDriverFactory {
+    @Override
+    public WebDriver driver() {
+        WebDriverManager.firefoxdriver().setup();
+        WebDriver driver = new FirefoxDriver();
+        driver.get(MainPageScooter.SCOOTER_URL);
+        return driver;
     }
+}
 
-    class WebDriverFactoryBrowser {
+class WebDriverFactoryBrowser {
     public static WebDriverFactory getFactory(String browser){
         switch (browser){
             case "chrome":
@@ -40,7 +40,8 @@ class ChromeDriverFactory implements WebDriverFactory {
                 throw new IllegalArgumentException("Браузер не поддерживается "+ browser);
         }
     }
-    }
+}
+
 
 
 

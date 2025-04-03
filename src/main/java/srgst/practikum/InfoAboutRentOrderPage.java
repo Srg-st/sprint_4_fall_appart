@@ -1,7 +1,9 @@
 package srgst.practikum;
 
 import org.junit.Assert;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -9,7 +11,7 @@ import java.time.Duration;
 
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class OtherInfoOrderPage {
+public class InfoAboutRentOrderPage {
 
     private WebDriver driver;
 
@@ -31,7 +33,7 @@ public class OtherInfoOrderPage {
 
     private final String orderConfirmText = "Заказ оформлен";
 
-    public OtherInfoOrderPage(WebDriver driver) {
+    public InfoAboutRentOrderPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -85,6 +87,4 @@ public class OtherInfoOrderPage {
         Assert.assertThat("Заказ не был сформирован", textOrder, containsString(orderConfirmText));
 
     }
-
-
 }

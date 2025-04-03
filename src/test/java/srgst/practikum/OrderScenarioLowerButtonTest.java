@@ -41,9 +41,9 @@ public class OrderScenarioLowerButtonTest {
         };
     }
 
-   @Before
+    @Before
     public void startDriver(){
-       //Реализация выбора браузера
+        //Реализация выбора браузера
         String browser = System.getProperty("browser","chrome");
         WebDriverFactory factory = WebDriverFactoryBrowser.getFactory(browser);
         driver = factory.driver();
@@ -53,37 +53,37 @@ public class OrderScenarioLowerButtonTest {
 
     public void checkOrderConfirmScenario() throws InterruptedException {
 
-        MainPage mainPage = new MainPage(driver);
+        MainPageScooter mainPageScooter = new MainPageScooter(driver);
         //Принимаем Куки
-        mainPage.clickOnCookieButton();
+        mainPageScooter.clickOnCookieButton();
         //Скроллим страницу до кнопки Заказать в нижней части страницы
-        mainPage.scrollToLowerOrderButton();
+        mainPageScooter.scrollToLowerOrderButton();
         Thread.sleep(3000);
         //Нажимаем на кнопку Заказать
-        mainPage.clickOnOrderButtonLowerSide();
+        mainPageScooter.clickOnOrderButtonLowerSide();
 
-        MainInformationUserOrderPage mainInformationUserOrderPage = new MainInformationUserOrderPage(driver);
+        MainInfoUserOrderPage mainInfoUserOrderPage = new MainInfoUserOrderPage(driver);
         // Кликаем на поле Имя и заполняем его
-        mainInformationUserOrderPage.clickOnNameField();
-        mainInformationUserOrderPage.nameFieldSendData(name);
+        mainInfoUserOrderPage.clickOnNameField();
+        mainInfoUserOrderPage.nameFieldSendData(name);
 
         //Кликаем на поле Фамилия и заполняем его
-        mainInformationUserOrderPage.clickOnSurnameField();
-        mainInformationUserOrderPage.surnameFieldSendData(surname);
+        mainInfoUserOrderPage.clickOnSurnameField();
+        mainInfoUserOrderPage.surnameFieldSendData(surname);
 
-        //Кликаем на поле Адрес и заполнем его
-        mainInformationUserOrderPage.clickOnAddressField();
-        mainInformationUserOrderPage.adressFieldSendData(adress);
+        //Кликаем на поле Адрес и заполняем его
+        mainInfoUserOrderPage.clickOnAddressField();
+        mainInfoUserOrderPage.adressFieldSendData(adress);
         //Кликаем на поле Метро, заполняем его и кликаем на введенное название метро в выпадающем списке
-        mainInformationUserOrderPage.clickOnMetroStationField();
-        mainInformationUserOrderPage.metroStationFieldSendData(metro);
+        mainInfoUserOrderPage.clickOnMetroStationField();
+        mainInfoUserOrderPage.metroStationFieldSendData(metro);
         //Кликаем на поле Телефон и заполняем его
-        mainInformationUserOrderPage.clickTelephoneField();
-        mainInformationUserOrderPage.telephoneFieldSendData(telephone);
+        mainInfoUserOrderPage.clickTelephoneField();
+        mainInfoUserOrderPage.telephoneFieldSendData(telephone);
         //Кликаем на кнопку Далее
-        mainInformationUserOrderPage.clickNextStepButton();
+        mainInfoUserOrderPage.clickNextStepButton();
 
-        OtherInfoOrderPage otherInfoOrderPage = new OtherInfoOrderPage(driver);
+        InfoAboutRentOrderPage otherInfoOrderPage = new InfoAboutRentOrderPage(driver);
         //Кликаем на поле Когда привезти самокат, заполняем его и закрываем окно с выбором даты
         otherInfoOrderPage.clickDateDeliveryField();
         otherInfoOrderPage.dateDeliveryFieldSendData(dateDelivery);
@@ -114,3 +114,4 @@ public class OrderScenarioLowerButtonTest {
         driver.quit();
     }
 }
+
